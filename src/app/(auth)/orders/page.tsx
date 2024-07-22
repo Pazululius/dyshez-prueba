@@ -12,7 +12,7 @@ import { useContext, useEffect, useState } from "react";
 
 const OrdersPage = () => {
   const { user } = useContext(UserContext);
-  console.log(user);
+
   const [data, setData] = useState<any>([]);
   const [infoPagination, setInfoPagination] = useState<any>({
     countTotal: 0,
@@ -54,7 +54,6 @@ const OrdersPage = () => {
     void obtainPagination(1);
     void obtainData(0, 9);
   }, []);
-  console.log(user);
   if (!user) {
     return redirect("/login");
   }
@@ -87,7 +86,6 @@ const OrdersPage = () => {
                           ? data.filter((d: any) => d.status)
                           : data.filter((d: any) => !d.status)
                       );
-                      debugger;
                       setFilters((oldFilters) => {
                         return oldFilters.map((fil) => {
                           if (fil.key === button.key) {

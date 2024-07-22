@@ -14,7 +14,6 @@ export function createClient() {
         },
         setAll(cookiesToSet) {
           try {
-            console.log(cookieStore, cookiesToSet);
             cookiesToSet.forEach(({ name, value, options }) =>
               cookieStore.set(name, value, options)
             );

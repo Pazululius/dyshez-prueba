@@ -36,10 +36,9 @@ export async function login(data: loginTypes) {
 }
 
 export async function signup(data: registerTypes) {
-  console.log(data);
   const supabase = createClient();
   const origin = headers().get("origin");
-  console.log(supabase);
+
   // type-casting here for convenience
   // in practice, you should validate your inputs
 
@@ -57,7 +56,6 @@ export async function signup(data: registerTypes) {
       },
     },
   });
-  console.log(error);
   if (error) {
     return redirect("/login?message=Error al intentar crear una cuenta");
   }
@@ -74,7 +72,6 @@ export async function loginGoogleAuth() {
       redirectTo: "http://localhost:3000/login",
     },
   });
-  console.log(response);
   if (response.error) {
     redirect("/login?message=Usuario no autenticado");
   }
@@ -90,7 +87,6 @@ export async function loginFacebookAuth() {
       redirectTo: "http://localhost:3000/login",
     },
   });
-  console.log(response);
   if (response.error) {
     redirect("/login?message=Usuario no autenticado");
   }
